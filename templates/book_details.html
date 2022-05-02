@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ url_for('static', filename = 'styles/styles.css') }}">
+
+<h1>Book Details</h1>
+
+<body>
+<img src="{{ image }}" alt="User Image" width="500" height="333" class="imagecenter">
+</body>
+
+&nbsp
+
+<table id = "bookDetails">
+{% for key, value in bookDetails.items() %}
+   <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+   </tr>
+{% endfor %}
+  </table>

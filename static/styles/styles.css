@@ -1,0 +1,53 @@
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 85px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+.webpage {
+    width:50%;
+    margin: auto;
+    padding: 10px;
+}
+
+body {
+    background-color: rgb(43, 101, 236)
+}
+
+input[id=inputfield] {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 12px, 20px;
+    margin: 8px 0px
+}
+
+#bookDetails {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #bookDetails td, #bookDetails th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* #bookDetails tr:nth-child(even){background-color: #f2f2f2;} */
+  
+  #bookDetails tr:hover {background-color: #ddd;}
+  
+  #bookDetails th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  #wrapper img {
+    position: relative;  
+    z-index: 2500;
+}
+
+.imagecenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
