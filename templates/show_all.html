@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'styles/styles.css') }}">
+
+
+<html lang = "en">
+   <head></head>
+   <h1>Books Database</h1>
+   <body>
+      
+    <table id = "bookDetails">
+         <thead>
+            <tr>
+               <th>Title</th>
+               <th>Author</th>
+               <th>Genre</th>
+               <th>Publisher</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for book in Books %}
+               <tr>
+                  <td>{{ book.Title }}</td>
+                  <td>{{ book.Author }}</td>
+                  <td>{{ book.Genre }}</td>
+                  <td>{{ book.Publisher }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+   </body>
+</html>
