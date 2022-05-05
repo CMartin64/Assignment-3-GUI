@@ -1,20 +1,68 @@
-h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 85px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+h1 {
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #db3416, #18e011);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+h2 {
+  font-size: 32;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #18e011, #db16aa );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
 
-.webpage {
+body {
+    background-color: rgb(43, 101, 236);
+    text-align: center;
     width:50%;
     margin: auto;
     padding: 10px;
 }
 
-body {
-    background-color: rgb(43, 101, 236)
+.uploadButton {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 50%;
+  will-change: transform;
 }
 
-input[id=inputfield] {
-    width: 50%;
-    box-sizing: border-box;
-    padding: 12px, 20px;
-    margin: 8px 0px
+.uploadButton:disabled {
+  pointer-events: none;
+}
+
+.uploadButton:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.uploadButton:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 #bookDetails {
@@ -27,8 +75,6 @@ input[id=inputfield] {
     border: 1px solid #ddd;
     padding: 8px;
   }
-  
-  /* #bookDetails tr:nth-child(even){background-color: #f2f2f2;} */
   
   #bookDetails tr:hover {background-color: #ddd;}
   
@@ -50,4 +96,28 @@ input[id=inputfield] {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
