@@ -1,0 +1,16 @@
+{% block head %}
+<ul>
+    {% for item in nav.top %}
+    <nav class="{{ 'active' if item.is_active else '' }}">
+        <a href="{{ item.url }}">{{ item.label }}</a>
+    </nav>
+    {% endfor %}
+  </ul>
+  {% endblock %}
+  <style>
+    nav a {
+        color: #000000;
+        font-size: 20;
+        text-decoration: none;
+    }
+</style>
