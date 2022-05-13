@@ -8,11 +8,11 @@ print('got here')
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 UPLOAD_FOLDER = './'
 
-bookDetails = {}
-bookDetails['Title'] = 'Mr Smithsonian'
-bookDetails['Author'] = 'Mrs Smithsonian'
-bookDetails['Genre'] = 'Biographical'
-bookDetails['Publisher'] = 'Self-Published'
+exampleBookDetails = {}
+exampleBookDetails['Title'] = 'Why Nations Fail'
+exampleBookDetails['Author'] = ' Daron Acemoglu and James Robinson'
+exampleBookDetails['Genre'] = 'Economics'
+exampleBookDetails['Publisher'] = 'Crown Business'
 
 app = Flask(__name__)
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.sqlite3'
@@ -22,8 +22,10 @@ db = SQLAlchemy(app)
 nav = Navigation(app)
 
 nav.Bar('top', [
+    nav.Item('Home', 'home_page'),
     nav.Item('Upload Book Cover', 'upload_cover'),
     nav.Item('Show Books Database', 'show_database', {'page': 1}),
+    nav.Item('About Us', 'about_us'),
 ])
 class Books(db.Model):
    id = db.Column('book_id', db.Integer, primary_key = True)
@@ -40,20 +42,21 @@ class Books(db.Model):
 
 db.create_all()
 
-entry = Books('Life of Student', 'Callum Freeburn', 'Fiction', 'self-publisher')
-db.session.add(entry)
-db.session.commit()
+# entry = Books('Life of Student', 'Callum Freeburn', 'Fiction', 'self-publisher')
+# db.session.add(entry)
+# db.session.commit()
 
 users = Books.query.all()
 
 def allowed_file(filename):     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
-def upload_cover():
-    return render_template('uploadCover.html')
+def home_page():
+    return render_template('homepage.html', image = 'static/why_nations_fail.jpg', exampleBookDetails=exampleBookDetails)
+    
 
-@app.route('/', methods=['POST', 'GET'])
-def upload_file():
+@app.route('/uploadImage', methods=['POST', 'GET'])
+def upload_cover():
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file part')
@@ -66,16 +69,22 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             print(file)
-    return redirect(url_for('upload_cover'))
-
+        return redirect(url_for('book_details'))
+    return render_template('uploadCover.html')
 
 @app.route('/bookDetails')
 def book_details():
-    return render_template('book_details.html', bookDetails=bookDetails, image = 'static/pic_trulli.jpg')
+    return render_template('book_details.html', bookDetails=exampleBookDetails, image = 'static/pic_trulli.jpg')
 
 @app.route('/show_all')
 def show_database():
-   return render_template('show_all.html', Books = Books.query.all() )
+   return render_template('show_all.html', Books = Books.query.all())
+
+@app.route('/about_us')
+def about_us():
+    return render_template('about_us.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+

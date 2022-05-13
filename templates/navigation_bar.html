@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ url_for('static', filename = 'styles/styles.css') }}">
+
 {% block head %}
 <ul>
     {% for item in nav.top %}
@@ -7,10 +9,7 @@
     {% endfor %}
   </ul>
   {% endblock %}
+
   <style>
-    nav a {
-        color: #000000;
-        font-size: 20;
-        text-decoration: none;
-    }
+
 </style>

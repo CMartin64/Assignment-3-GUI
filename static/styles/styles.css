@@ -1,35 +1,48 @@
+/* https://www.schemecolor.com/evening-chill.php */
+
 h1 {
   font-size: 70px;
   font-weight: 600;
-  background-image: linear-gradient(to left, #db3416, #18e011);
-  color: transparent;
+  color: #3FC6A3;
   background-clip: text;
   -webkit-background-clip: text;
 }
 h2 {
   font-size: 32;
   font-weight: 600;
-  background-image: linear-gradient(to left, #18e011, #db16aa );
-  color: transparent;
+  color: #3FC6A3;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+h3 {
+  font-size: 24;
+  font-weight: 600;
+  color: #3FC6A3;
   background-clip: text;
   -webkit-background-clip: text;
 }
 
 body {
-    background-color: rgb(43, 101, 236);
+    background-color: #2F4A70;
     text-align: center;
     width:50%;
     margin: auto;
     padding: 10px;
 }
 
+#homepageParagraph {
+  font-size: 20;
+  color: #E9EADC;
+}
+
 .uploadButton {
   appearance: none;
-  background-color: #000000;
+  background-color: #E9EADC;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #4894B0;
   cursor: pointer;
   display: inline-block;
   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -74,6 +87,7 @@ body {
   #bookDetails td, #bookDetails th {
     border: 1px solid #ddd;
     padding: 8px;
+    background-color: #E9EADC;
   }
   
   #bookDetails tr:hover {background-color: #ddd;}
@@ -81,9 +95,9 @@ body {
   #bookDetails th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
+    text-align: center;
+    background-color: #4894B0;
+    color: #E9EADC;
   }
 
   #wrapper img {
@@ -120,4 +134,43 @@ body {
   left: 0;
   top: 0;
   opacity: 0;
+}
+
+.loader {
+  border: 16px solid #E9EADC; /* Light grey */
+  border-top: 16px solid #3FC6A3; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: relative;
+  left: 50%;
+  margin-left: -4em;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+nav a {
+  color: #E9EADC;
+  font-size: 20;
+  text-decoration: none;
+
+}
+nav {
+  background-color: #333;
+  overflow: hidden;
+  display: inline-block;
+  list-style-type: none;
+}
+
+nav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
