@@ -2,7 +2,7 @@
 import requests
 
 title = 'Why Nations Fail'
-author = 'cu'
+author = 'Daron Acemoglu'
 
 def get_book_details_from_google(title, author):
     bookResponse = requests.get('https://www.googleapis.com/books/v1/volumes?q=intitle:' + title + '+inauthor:' + author)           
