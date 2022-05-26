@@ -55,8 +55,12 @@ def upload_cover():
         return redirect(url_for('book_details'))
     return render_template('uploadCover.html')
 
-@app.route('/bookDetails')
+@app.route('/bookDetails', methods=["POST", 'GET'])
 def book_details():
+    if request.method == "POST":
+        bookid = request.form["booktitleE"]
+        print(bookid)
+        print('ok')
     return render_template('book_details.html', bookDetails=exampleBookDetails, image = 'static/why_nations_fail.jpg')
 
 @app.route('/show_all')
@@ -69,3 +73,15 @@ def about_us():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
+#           <th> Author </th>>
+#       <td name="bookauthor">{{  bookDetails['Author']}}</td>
+#    </tr>
+
+#       <th> Genre </th>>
+#       <td name="bookgenre">{{  bookDetails['Genre']}}</td>
+# </tr>
+# </tr>
+#       <th> Publisher </th>>
+#       <td name="bookpublisher">{{  bookDetails['Publisher']}}</td>
+# </tr>

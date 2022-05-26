@@ -11,12 +11,17 @@
 </body>
 
 &nbsp
+<form action="{{ url_for('book_details') }}" method="post">
 
 <table id = "bookDetails">
-{% for key, value in bookDetails.items() %}
    <tr>
-        <th> {{ key }} </th>
-        <td> {{ value }} </td>
+      <th> Title </th>
+      <td name="booktitle" contenteditable='true'>{{ bookDetails['Title']}}</td>
+      <input type="hidden" name="booktitleE" type="text" value="{{ bookDetails['Title']}}">{{ bookDetails['Title']}}</td>
+
    </tr>
-{% endfor %}
   </table>
+  <p><input type="submit" value="Save to Database" class="uploadButton"></p>
+</form>
+
+
