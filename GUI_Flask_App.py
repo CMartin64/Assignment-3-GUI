@@ -10,11 +10,11 @@ model = GenreModel()
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 UPLOAD_FOLDER = './static/'
 
-exampleBookDetails = {}
-exampleBookDetails['Title'] = 'Why Nations Fail'
-exampleBookDetails['Author'] = ' Daron Acemoglu and James Robinson'
-exampleBookDetails['Genre'] = 'Economics'
-exampleBookDetails['Publisher'] = 'Crown Business'
+exampleBookPredictions = {}
+exampleBookPredictions['Genre'] = 'History'
+exampleBookPredictions['Confidence'] = '0.6679179'
+exampleBookPredictions['FileName'] = 'why_nations_fail.jpg'
+
 
 app = Flask(__name__)
 
@@ -37,7 +37,7 @@ def allowed_file(filename):     return '.' in filename and filename.rsplit('.', 
 
 @app.route('/')
 def home_page():
-    return render_template('homepage.html', image = 'static/example_image_homepage.jpg', exampleBookDetails=exampleBookDetails)
+    return render_template('homepage.html', image = 'static/example_image_homepage.jpg', exampleBookDetails=exampleBookPredictions)
     
 
 @app.route('/uploadImage', methods=['POST', 'GET'])

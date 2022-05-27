@@ -9,8 +9,7 @@
 <br/>
 <p id="homepageParagraph"> 
     This website allows you to upload an Image of a Book Cover,
-    Our model will extract the Title and Author from the cover to gather
-    further details of the book. The Book Details will then be stored in a 
+    Our model will extract the Genre, the Confidence of the prediction and filename of the image using machine learning. The Book Predictions will then be stored in a 
     database for you to access.
     </p>
 
@@ -30,7 +29,7 @@
 
 <br />
 
-<h3>Book Details</h3>
+<h3>Book Predictions</h3>
 
 <table id = "bookDetails">
     {% for key, value in exampleBookDetails.items() %}
