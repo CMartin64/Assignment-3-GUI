@@ -12,20 +12,18 @@
     <table id = "bookDetails">
          <thead>
             <tr>
-               <th>Title</th>
-               <th>Author</th>
                <th>Genre</th>
-               <th>Publisher</th>
+               <th>Confidence</th>
+               <th>FileName</th>
             </tr>
          </thead>
          
          <tbody>
             {% for book in Books %}
                <tr>
-                  <td>{{ book.Title }}</td>
-                  <td>{{ book.Author }}</td>
                   <td>{{ book.Genre }}</td>
-                  <td>{{ book.Publisher }}</td>
+                  <td>{{ book.Confidence }}</td>
+                  <td>{{ book.FileName }}</td>
                </tr>
             {% endfor %}
          </tbody>

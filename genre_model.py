@@ -1,3 +1,4 @@
+# https://www.tensorflow.org/install/pip#windows
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
@@ -49,8 +50,8 @@ class GenreModel:
         return genre_prediction, prob
 
 
-if __name__ == '__main__':
-    model = GenreModel()
+# if __name__ == '__main__':
+    # model = GenreModel()
 
-    genre, confidence = model.predict_genre('Images/why_nations_fail.jpg')
-    print(f'Genre: {genre} --- Confidence: {confidence}')
+    # genre, confidence = model.predict_genre('Images/why_nations_fail.jpg')
+    # print(f'Genre: {genre} --- Confidence: {confidence}')
