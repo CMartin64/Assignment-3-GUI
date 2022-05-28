@@ -1,6 +1,7 @@
 # https://www.tensorflow.org/install/pip#windows
 import numpy as np
 import tensorflow as tf
+from tensorflow.keras.applications.inception_resnet_v2 import preprocess_input
 from tensorflow.keras.preprocessing import image
 
 
@@ -16,7 +17,7 @@ class GenreModel:
                    'Science Fiction & Fantasy', 'Self-Help', 'Sports & Outdoors', 'Teen & Young Adult',
                    'Test Preparation', 'Travel']
 
-    def __init__(self, model_path='genreModel.h5'):
+    def __init__(self, model_path='inception_resnet_genre_model-v2.h5'):
         self.genre_model = tf.keras.models.load_model(model_path)
 
     def predict_genre(self, img_path):
@@ -33,12 +34,9 @@ class GenreModel:
         # Load and preprocess image
         img = image.load_img(img_path, target_size=(224, 224))
 
-        # plt.imshow(img)
-        # plt.show()
-
         img = image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
-        img = img / 255.
+        img = preprocess_input(img)
 
         # Predict genre
         predictions = self.genre_model.predict(img)
@@ -53,5 +51,5 @@ class GenreModel:
 # if __name__ == '__main__':
     # model = GenreModel()
 
-    # genre, confidence = model.predict_genre('Images/why_nations_fail.jpg')
+    # genre, confidence = model.predict_genre('static/why_nations_fail.jpg')
     # print(f'Genre: {genre} --- Confidence: {confidence}')
