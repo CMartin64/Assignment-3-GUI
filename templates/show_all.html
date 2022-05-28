@@ -12,18 +12,20 @@
     <table id = "bookDetails">
          <thead>
             <tr>
+               <th>FileName</th>
                <th>Genre</th>
                <th>Confidence</th>
-               <th>FileName</th>
+               <th>Book Cover Image</th>
             </tr>
          </thead>
          
          <tbody>
             {% for book in Books %}
                <tr>
+                  <td>{{ book.FileName }}</td>
                   <td>{{ book.Genre }}</td>
                   <td>{{ book.Confidence }}</td>
-                  <td>{{ book.FileName }}</td>
+                  <td><img src="static/{{ book.FileName }}" alt="" border=3 height=50%% width=50%%></img></td>
                </tr>
             {% endfor %}
          </tbody>
